@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import {Form,Input} from 'semantic-ui-react'
+import {Company} from '../actions/inputAction'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
-export default class CompanyName extends Component {
+class CompanyName extends Component {
   constructor(props){
     super(props)
     this.state={
       nameCompany:''
     }
+  }
+
+  componentDidMount(){
+    this.props.Company(this.state.nameCompany)
   }
   
   handleOnChange = (e) =>{
@@ -26,3 +33,16 @@ export default class CompanyName extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) =>{
+  return {
+    companyName:state.inputReducers
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return bindActionCreators({
+    Company
+  },dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CompanyName)

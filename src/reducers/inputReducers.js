@@ -8,7 +8,7 @@ const initialState = {
   companyName: null
 }
 
-function inputReducers(state = { ...initialState }, action) {
+export default function inputReducers(state = { ...initialState }, action) {
   switch (action.type) {
     case 'ROOM_INPUT':
       return ({

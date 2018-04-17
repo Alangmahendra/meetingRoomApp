@@ -34,7 +34,6 @@ export default class Confirm extends Component {
             <p>for {Participants} peoples</p>
             <p>will start in : {StartIn}</p>
             <p>will end in : {EndIn}</p>
-            
           </Modal.Description>
         </Modal.Content>
           <Modal.Actions>

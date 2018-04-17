@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
+import {room} from '../actions/inputAction'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
-
-export default class Room extends Component {
+class Room extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -21,6 +23,7 @@ export default class Room extends Component {
 
   componentDidMount() {
     console.log(this.state.choosenRoom)
+    this.props.room(this.state.choosenRoom)
   }
 
   handleOnChange = (e) => {
@@ -45,3 +48,17 @@ export default class Room extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) =>{
+  return {
+    choosenRoom:state.inputReducers
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return bindActionCreators({
+    room
+  },dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Room)

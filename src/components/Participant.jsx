@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import { Form, Input } from 'semantic-ui-react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {Participants} from '../actions/inputAction'
 
-export default class Participant extends Component {
+class Participant extends Component {
   constructor(props) {
     super(props)
     this.state = {
       participants: ''
     }
   }
+
+  componentDidMount(){
+    this.props.Participants(this.state.participants)
+  }
+
   handleOnChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -24,3 +32,16 @@ export default class Participant extends Component {
     )
   }
 }
+const mapStateToProps = (state) =>{
+  return {
+    participant:state.inputReducers
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return bindActionCreators({
+    Participants
+  },dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Participant)

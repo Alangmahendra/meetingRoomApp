@@ -1,4 +1,4 @@
-export function Room(roomNumber){
+export function room(roomNumber){
   return{
     type:'ROOM_INPUT',
     roomNumber
@@ -12,11 +12,11 @@ export function Participants(participants){
   }
 }
 
-export function DateTime(startDate,endDate){
+export function DateTime(StartDate,EndDate){
   return{
     type:'TIME_INPUT',
-    startDate,
-    endDate
+    StartDate,
+    EndDate
   }
 }
 

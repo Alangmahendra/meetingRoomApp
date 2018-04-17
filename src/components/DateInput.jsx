@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import {Form,Input} from 'semantic-ui-react'
+import {DateTime} from '../actions/inputAction'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
-export default class componentName extends Component {
+class DateInput extends Component {
   constructor(props){
     super(props)
     this.state={
       dateStart:'',
       dateEnd:''
     }
+  }
+
+  componentDidMount(){
+    const {dateEnd,dateStart} = this.state
+    this.props.DateTime(dateStart,dateEnd)
   }
 
   handleOnChange = (e) =>{
@@ -31,3 +39,15 @@ export default class componentName extends Component {
     )
   }
 }
+const mapStateToProps = (state) =>{
+  return {
+    dateTime:state.inputReducers
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return bindActionCreators({
+    DateTime
+  },dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(DateInput)
