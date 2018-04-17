@@ -13,7 +13,8 @@ class Participant extends Component {
   }
 
   componentDidMount(){
-    this.props.Participants(this.state.participants)
+    const Participants = localStorage.getItem('participants')
+    this.props.Participants(Participants)
   }
 
   handleOnChange = (e) => {

@@ -22,8 +22,8 @@ class Room extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.choosenRoom)
-    this.props.room(this.state.choosenRoom)
+    const ChooseRoom = localStorage.getItem('chooseRoom')
+    this.props.room(ChooseRoom)
   }
 
   handleOnChange = (e) => {

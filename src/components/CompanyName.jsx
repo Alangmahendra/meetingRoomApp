@@ -13,7 +13,8 @@ class CompanyName extends Component {
   }
 
   componentDidMount(){
-    this.props.Company(this.state.nameCompany)
+    const CompanyName = localStorage.getItem('nameCompany')
+    this.props.Company(CompanyName)
   }
   
   handleOnChange = (e) =>{

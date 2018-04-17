@@ -14,8 +14,10 @@ class DateInput extends Component {
   }
 
   componentDidMount(){
-    const {dateEnd,dateStart} = this.state
-    this.props.DateTime(dateStart,dateEnd)
+    
+    const StartIn = localStorage.getItem('dateStart')
+    const EndIn = localStorage.getItem('dateEnd')
+    this.props.DateTime(StartIn,EndIn)
   }
 
   handleOnChange = (e) =>{
