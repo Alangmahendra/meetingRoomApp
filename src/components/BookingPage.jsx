@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Checkbox, Form, Container } from 'semantic-ui-react'
-import moment from 'moment'
+import { Container, Segment } from 'semantic-ui-react'
 import Room from './Room'
 import Paricipant from './Participant'
 import Date from './DateInput'
@@ -9,13 +8,18 @@ import Confirm from './Confirm'
 
 export default class Booking extends Component {
   render() {
+    const styles={
+      "marginTop":"50px"
+    }
     return (
       <Container>
-        <Room/>
-        <Paricipant/>
-        <Date/>
-        <Company/>
-        <Confirm/>
+        <Segment style={styles}>
+          <Room />
+          <Paricipant />
+          <Date />
+          <Company />
+          <Confirm />
+        </Segment>
       </Container>
     )
   }
